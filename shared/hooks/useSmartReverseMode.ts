@@ -31,7 +31,7 @@ export const useSmartReverseMode = (options: SmartReverseModeOptions = {}) => {
     baseProbability = 0.2,
     incrementPerCorrect = 0.1,
     maxProbability = 0.7,
-    forceSwitchInterval = 4
+    forceSwitchInterval = 3
   } = options;
 
   const [consecutiveCorrect, setConsecutiveCorrect] = useState(0);
