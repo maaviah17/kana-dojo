@@ -42,7 +42,8 @@ const ContinueButton = ({
       <ActionButton
         ref={buttonRef}
         borderBottomThickness={8}
-        className='text-xl font-medium py-4 px-16 w-full md:w-1/2'
+        borderRadius='3xl'
+        className='text-xl  py-4 px-16 w-full md:w-1/2'
         onClick={onClick}
         disabled={disabled}
       >

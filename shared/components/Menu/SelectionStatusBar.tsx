@@ -99,16 +99,25 @@ const SelectionStatusBar = () => {
     };
   }, []);
 
-  const formattedSelection =
+  const sortedSets =
     selectedSets.length > 0
-      ? selectedSets
-          .sort((a, b) => {
-            const numA = parseInt(a.replace('Set ', ''));
-            const numB = parseInt(b.replace('Set ', ''));
-            return numA - numB;
-          })
-          .join(', ')
-          .replace(/Set /g, 'Level ')
+      ? selectedSets.sort((a, b) => {
+          const numA = parseInt(a.replace('Set ', ''));
+          const numB = parseInt(b.replace('Set ', ''));
+          return numA - numB;
+        })
+      : [];
+
+  // Compact: "1, 2, 3"
+  const formattedSelectionCompact =
+    sortedSets.length > 0
+      ? sortedSets.map(set => set.replace('Set ', '')).join(', ')
+      : 'None';
+
+  // Full: "Level 1, Level 2, Level 3"
+  const formattedSelectionFull =
+    sortedSets.length > 0
+      ? sortedSets.map(set => set.replace('Set ', 'Level ')).join(', ')
       : 'None';
 
   return (
@@ -139,21 +148,26 @@ const SelectionStatusBar = () => {
           <div
             className={clsx(
               'flex flex-row items-center justify-center gap-2 md:gap-4',
-              'w-full w-full ',
+              'w-full ',
               'py-3 px-4'
             )}
           >
             {/* Selected Levels Info */}
-            <div className='flex flex-row items-start gap-2 flex-1 min-w-0'>
+            <div className='flex flex-row items-start gap-2 flex-1 '>
               <CircleCheck
                 className='text-[var(--secondary-color)] shrink-0 mt-0.5'
                 size={20}
               />
               <span className='text-sm md:text-base whitespace-nowrap'>
-                Selected:
+                Selected Levels:
               </span>
-              <span className='text-[var(--secondary-color)] text-sm md:text-base break-words'>
-                {formattedSelection}
+              {/* Compact form on small screens: "1, 2, 3" */}
+              <span className='text-[var(--secondary-color)] text-sm break-words md:hidden'>
+                {formattedSelectionCompact}
+              </span>
+              {/* Full form on medium+ screens: "Level 1, Level 2" */}
+              <span className='text-[var(--secondary-color)] text-base break-words hidden md:inline'>
+                {formattedSelectionFull}
               </span>
             </div>
 
