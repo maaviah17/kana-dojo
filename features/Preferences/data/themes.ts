@@ -242,7 +242,11 @@ const baseThemeSets: BaseThemeGroup[] = [
     icon: Moon,
     themes: [
       {
-        id: 'autumn-maple',
+        id: 'wasabi-punch',
+        backgroundColor: 'oklch(20.0% 0.048 160.0 / 1)',
+        mainColor: 'oklch(72.0% 0.185 145.0 / 1)',
+        secondaryColor: 'oklch(82.0% 0.145 130.0 / 1)'
+    },{    id: 'autumn-maple',
         backgroundColor: 'oklch(21.0% 0.052 30.0 / 1)',
         mainColor: 'oklch(72.0% 0.200 35.0 / 1)',
         secondaryColor: 'oklch(80.0% 0.165 60.0 / 1)'
