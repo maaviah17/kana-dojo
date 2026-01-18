@@ -272,6 +272,12 @@ const baseThemeSets: BaseThemeGroup[] = [
         secondaryColor: 'oklch(58.0% 0.075 55.0 / 1)'
       },
       {
+      id: 'tatami-room',
+      backgroundColor: 'oklch(88.0% 0.035 85.0 / 1)',
+      mainColor: 'oklch(45.0% 0.105 75.0 / 1)',
+      secondaryColor: 'oklch(55.0% 0.080 60.0 / 1)'
+      },
+      {
         id: 'rice-field-gold',
         backgroundColor: 'oklch(24.0% 0.045 80.0 / 1)',
         mainColor: 'oklch(85.0% 0.155 90.0 / 1)',
