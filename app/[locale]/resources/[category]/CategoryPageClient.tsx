@@ -113,7 +113,7 @@ export function CategoryPageClient({
   }, [selectedResource, initialResources]);
 
   return (
-    <div className='min-h-screen bg-[var(--background-color)]'>
+    <div className='min-h-screen bg-(--background-color)'>
       <div className='mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8'>
         {/* Breadcrumbs */}
         <ResourceBreadcrumbs
@@ -145,8 +145,8 @@ export function CategoryPageClient({
           {/* Sidebar */}
           <aside className='w-full shrink-0 lg:w-64'>
             {/* Category Navigation */}
-            <div className='mb-6 rounded-xl border border-[var(--border-color)] bg-[var(--card-color)] p-4'>
-              <h2 className='mb-4 text-sm font-semibold tracking-wider text-[var(--secondary-color)] uppercase'>
+            <div className='mb-6 rounded-xl border border-(--border-color) bg-(--card-color) p-4'>
+              <h2 className='mb-4 text-sm font-semibold tracking-wider text-(--secondary-color) uppercase'>
                 Categories
               </h2>
               <CategoryNav
@@ -175,7 +175,7 @@ export function CategoryPageClient({
           {/* Resource Grid */}
           <main className='flex-1'>
             <div className='mb-4 flex items-center justify-between'>
-              <p className='text-sm text-[var(--secondary-color)]'>
+              <p className='text-sm text-(--secondary-color)'>
                 Showing {filteredResources.length} of {initialResources.length}{' '}
                 {category.name.toLowerCase()}
               </p>

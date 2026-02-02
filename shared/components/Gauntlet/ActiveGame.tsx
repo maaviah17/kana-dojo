@@ -172,7 +172,7 @@ const ActiveTile = memo(
           tileBaseStyles,
           'cursor-pointer transition-colors',
           'active:mb-[10px] active:translate-y-[10px] active:border-b-0',
-          'border-[var(--secondary-color-accent)] bg-[var(--secondary-color)] text-[var(--background-color)]',
+          'border-(--secondary-color-accent) bg-(--secondary-color) text-(--background-color)',
           isDisabled && 'cursor-not-allowed opacity-50',
           // Kana tiles use text-2xl sm:text-3xl, Kanji/Vocab use larger for Japanese
           tileSizeClass,
@@ -195,7 +195,7 @@ const BlankTile = memo(
       <div
         className={clsx(
           tileBaseStyles,
-          'border-transparent bg-[var(--border-color)]/30',
+          'border-transparent bg-(--border-color)/30',
           'select-none',
           // Kana tiles use text-2xl sm:text-3xl, Kanji/Vocab use larger for Japanese
           tileSizeClass,
@@ -406,13 +406,13 @@ export default function ActiveGame<T>({
         {/* Exit Button */}
         <button
           onClick={onCancel}
-          className='text-[var(--border-color)] duration-250 hover:cursor-pointer hover:text-[var(--secondary-color)]'
+          className='text-(--border-color) duration-250 hover:cursor-pointer hover:text-(--secondary-color)'
         >
           <X size={32} />
         </button>
 
         {/* Progress Display */}
-        <div className='flex items-center gap-2 text-sm text-[var(--muted-color)]'>
+        <div className='flex items-center gap-2 text-sm text-(--muted-color)'>
           <span>
             {currentIndex + 1} / {totalQuestions}
           </span>
@@ -427,12 +427,12 @@ export default function ActiveGame<T>({
                 {hasLife ? (
                   <Heart
                     size={24}
-                    className='fill-[var(--main-color)] text-[var(--main-color)]'
+                    className='fill-(--main-color) text-(--main-color)'
                   />
                 ) : (
                   <HeartCrack
                     size={24}
-                    className='text-[var(--border-color)]'
+                    className='text-(--border-color)'
                   />
                 )}
               </div>
@@ -472,7 +472,7 @@ export default function ActiveGame<T>({
             <div className='flex w-full flex-col items-center'>
               <div
                 className={clsx(
-                  'flex w-full items-center border-b-2 border-[var(--border-color)] px-2 pb-2 md:w-3/4 lg:w-2/3 xl:w-1/2',
+                  'flex w-full items-center border-b-2 border-(--border-color) px-2 pb-2 md:w-3/4 lg:w-2/3 xl:w-1/2',
                   answerRowMinHeight,
                 )}
               >

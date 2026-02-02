@@ -46,7 +46,7 @@ export default function KanaNebula() {
   return (
     <div
       ref={containerRef}
-      className='relative flex flex-1 cursor-none flex-col overflow-hidden rounded-[3rem] border border-[var(--border-color)] bg-[#05050a]'
+      className='relative flex flex-1 cursor-none flex-col overflow-hidden rounded-[3rem] border border-(--border-color) bg-[#05050a]'
     >
       {/* Space Overlay */}
       <div className='pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,_transparent_0%,_#000_100%)]' />

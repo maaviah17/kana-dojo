@@ -43,9 +43,9 @@ export default function GauntletTypeAnswer({
         className={clsx(
           'w-full max-w-xs sm:max-w-sm md:max-w-md',
           'rounded-2xl px-5 py-4',
-          'rounded-2xl border border-[var(--border-color)] bg-[var(--card-color)]',
+          'rounded-2xl border border-(--border-color) bg-(--card-color)',
           'text-top text-left text-lg font-medium lg:text-xl',
-          'text-[var(--secondary-color)] placeholder:text-base placeholder:font-normal placeholder:text-[var(--secondary-color)]/40',
+          'text-(--secondary-color) placeholder:text-base placeholder:font-normal placeholder:text-(--secondary-color)/40',
           'resize-none focus:outline-none',
           'transition-colors duration-200 ease-out',
           disabled && 'cursor-not-allowed opacity-60',

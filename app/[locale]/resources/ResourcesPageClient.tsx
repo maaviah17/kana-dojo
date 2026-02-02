@@ -95,33 +95,33 @@ export function ResourcesPageClient({
   }, [selectedResource, initialResources]);
 
   return (
-    <div className='min-h-screen bg-[var(--background-color)] selection:bg-[var(--main-color)] selection:text-[var(--background-color)]'>
+    <div className='min-h-screen bg-(--background-color) selection:bg-(--main-color) selection:text-(--background-color)'>
       {/* Editorial Header */}
-      <header className='overflow-hidden border-b border-[var(--border-color)] py-24'>
+      <header className='overflow-hidden border-b border-(--border-color) py-24'>
         <div className='mx-auto max-w-screen-2xl px-6 md:px-12'>
           <div className='flex flex-col justify-between gap-12 md:flex-row md:items-end'>
             <div className='max-w-3xl'>
               <div className='mb-8 flex items-center gap-4'>
-                <span className='text-[10px] font-bold tracking-[0.3em] text-[var(--secondary-color)] uppercase opacity-40'>
+                <span className='text-[10px] font-bold tracking-[0.3em] text-(--secondary-color) uppercase opacity-40'>
                   Resource Compendium
                 </span>
-                <div className='h-px w-12 bg-[var(--border-color)]' />
+                <div className='h-px w-12 bg-(--border-color)' />
               </div>
-              <h1 className='mb-8 text-6xl leading-[0.9] font-black tracking-tighter text-[var(--main-color)] md:text-8xl'>
+              <h1 className='mb-8 text-6xl leading-[0.9] font-black tracking-tighter text-(--main-color) md:text-8xl'>
                 Learn <br className='hidden md:block' />
                 Japanese.
               </h1>
-              <p className='max-w-xl text-xl leading-relaxed font-medium text-[var(--secondary-color)] opacity-60 md:text-2xl'>
+              <p className='max-w-xl text-xl leading-relaxed font-medium text-(--secondary-color) opacity-60 md:text-2xl'>
                 A curated indexing of the most effective tools, texts, and
                 platforms for mastering the Japanese language.
               </p>
             </div>
 
             <div className='shrink-0 pb-2'>
-              <div className='mb-4 text-[10px] font-bold tracking-[0.2em] text-[var(--main-color)] uppercase'>
+              <div className='mb-4 text-[10px] font-bold tracking-[0.2em] text-(--main-color) uppercase'>
                 Global Index
               </div>
-              <div className='text-6xl font-black tracking-tighter text-[var(--main-color)] tabular-nums'>
+              <div className='text-6xl font-black tracking-tighter text-(--main-color) tabular-nums'>
                 {initialResources.length}
               </div>
             </div>
@@ -162,11 +162,11 @@ export function ResourcesPageClient({
             />
 
             {/* Footer indicator */}
-            <div className='mt-24 flex flex-col items-center border-t border-[var(--border-color)] pt-12 text-center opacity-20'>
-              <div className='mb-4 text-[10px] font-bold tracking-[0.5em] text-[var(--secondary-color)] uppercase'>
+            <div className='mt-24 flex flex-col items-center border-t border-(--border-color) pt-12 text-center opacity-20'>
+              <div className='mb-4 text-[10px] font-bold tracking-[0.5em] text-(--secondary-color) uppercase'>
                 End of Index
               </div>
-              <div className='h-1 w-1 rounded-full bg-[var(--main-color)]' />
+              <div className='h-1 w-1 rounded-full bg-(--main-color)' />
             </div>
           </main>
         </div>

@@ -131,12 +131,20 @@ export default function ClientLayout({
     <div
       data-scroll-restoration-id='container'
       className={clsx(
-        'min-h-[100dvh] max-w-[100dvw] bg-[var(--background-color)] text-[var(--main-color)]',
+        'min-h-[100dvh] max-w-[100dvw] bg-(--background-color) text-(--main-color)',
         fontClassName,
       )}
       style={{
         height: '100dvh',
         overflowY: 'auto',
+        ...(effectiveTheme === 'neon-city-glass'
+          ? {
+              backgroundImage: "url('/wallpapers/neonretrocarcity.jpg')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundAttachment: 'fixed',
+            }
+          : {}),
       }}
     >
       <GlobalAudioController />

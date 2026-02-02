@@ -46,7 +46,7 @@ function TileButton({
         'w-full px-4 py-4 text-center font-semibold select-none',
         'transition-transform duration-150 active:scale-[0.98]',
         disabled && 'cursor-not-allowed opacity-60',
-        isSelected && 'ring-2 ring-[var(--main-color)]',
+        isSelected && 'ring-2 ring-(--main-color)',
       )}
       disabled={disabled}
     >
@@ -112,7 +112,7 @@ export default function GauntletWordBuildingAnswer({
                 initial='hidden'
                 animate='visible'
                 exit='exit'
-                className='w-full rounded-3xl border-2 border-dashed border-[var(--border-color)] bg-[var(--card-color)] px-4 py-6 text-center text-lg text-[var(--secondary-color)]/50'
+                className='w-full rounded-3xl border-2 border-dashed border-(--border-color) bg-(--card-color) px-4 py-6 text-center text-lg text-(--secondary-color)/50'
               >
                 Select an option
               </motion.div>

@@ -108,33 +108,33 @@ export default function PreGameScreen({
   const useNewSelectorDesign = false;
 
   return (
-    <div className='fixed inset-0 z-[70] overflow-y-auto bg-[var(--background-color)]'>
+    <div className='fixed inset-0 z-[70] overflow-y-auto bg-(--background-color)'>
       <div className='flex min-h-[100dvh] flex-col items-center justify-center p-4'>
         <div className='w-full max-w-lg space-y-4'>
           {/* Header */}
           <div className='space-y-3 text-center'>
             <Swords
               size={56}
-              className='mx-auto text-[var(--secondary-color)]'
+              className='mx-auto text-(--secondary-color)'
             />
-            <h1 className='text-2xl font-bold text-[var(--main-color)]'>
+            <h1 className='text-2xl font-bold text-(--main-color)'>
               {dojoLabel} Gauntlet
             </h1>
-            <p className='text-[var(--secondary-color)]'>
+            <p className='text-(--secondary-color)'>
               Master every character. No random help.
             </p>
           </div>
 
           {/* Selected Sets */}
-          <div className='rounded-2xl bg-[var(--card-color)] p-4'>
+          <div className='rounded-2xl bg-(--card-color) p-4'>
             <div className='flex flex-col gap-2'>
-              <span className='text-sm font-medium text-[var(--main-color)]'>
+              <span className='text-sm font-medium text-(--main-color)'>
                 Selected:
               </span>
-              <span className='text-sm text-[var(--secondary-color)]'>
+              <span className='text-sm text-(--secondary-color)'>
                 {selectedSets.length > 0 ? selectedSets.join(', ') : 'None'}
               </span>
-              <span className='text-xs text-[var(--secondary-color)]'>
+              <span className='text-xs text-(--secondary-color)'>
                 {itemsCount} characters × {repetitions} = {totalQuestions}{' '}
                 questions (~{estimatedMinutes} min)
               </span>
@@ -149,10 +149,10 @@ export default function PreGameScreen({
                 <div
                   className={cn(
                     'space-y-3',
-                    true && 'rounded-2xl bg-[var(--card-color)] p-4',
+                    true && 'rounded-2xl bg-(--card-color) p-4',
                   )}
                 >
-                  <h3 className='text-sm text-[var(--main-color)]'>
+                  <h3 className='text-sm text-(--main-color)'>
                     Difficulty
                   </h3>
                   <div className='flex w-full justify-center gap-3'>
@@ -182,7 +182,7 @@ export default function PreGameScreen({
                       );
                     })}
                   </div>
-                  <p className='text-center text-xs text-[var(--secondary-color)]'>
+                  <p className='text-center text-xs text-(--secondary-color)'>
                     {DIFFICULTY_CONFIG[difficulty].description}
                   </p>
                 </div>
@@ -192,8 +192,8 @@ export default function PreGameScreen({
             // Old design: Card with transparent non-selected buttons
             return (
               <div className='space-y-3'>
-                <h3 className='text-sm text-[var(--main-color)]'>Difficulty</h3>
-                <div className='flex w-full justify-center gap-1 rounded-[22px] bg-[var(--card-color)] p-1.5'>
+                <h3 className='text-sm text-(--main-color)'>Difficulty</h3>
+                <div className='flex w-full justify-center gap-1 rounded-[22px] bg-(--card-color) p-1.5'>
                   {(
                     Object.entries(DIFFICULTY_CONFIG) as [
                       GauntletDifficulty,
@@ -207,7 +207,7 @@ export default function PreGameScreen({
                         {isSelected && (
                           <motion.div
                             layoutId='activeDifficultyTab'
-                            className='absolute inset-0 rounded-2xl border-b-10 border-[var(--main-color-accent)] bg-[var(--main-color)]'
+                            className='absolute inset-0 rounded-2xl border-b-10 border-(--main-color-accent) bg-(--main-color)'
                             transition={{
                               type: 'spring',
                               stiffness: 300,
@@ -220,8 +220,8 @@ export default function PreGameScreen({
                           className={clsx(
                             'relative z-10 flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-2xl px-4 pt-3 pb-5 text-sm font-semibold transition-colors duration-300',
                             isSelected
-                              ? 'text-[var(--background-color)]'
-                              : 'text-[var(--secondary-color)] hover:text-[var(--main-color)]',
+                              ? 'text-(--background-color)'
+                              : 'text-(--secondary-color) hover:text-(--main-color)',
                           )}
                         >
                           {difficultyIcons[key]}
@@ -231,7 +231,7 @@ export default function PreGameScreen({
                     );
                   })}
                 </div>
-                <p className='text-center text-xs text-[var(--secondary-color)]'>
+                <p className='text-center text-xs text-(--secondary-color)'>
                   {DIFFICULTY_CONFIG[difficulty].description}
                 </p>
               </div>
@@ -247,10 +247,10 @@ export default function PreGameScreen({
                 <div
                   className={cn(
                     'space-y-3',
-                    true && 'rounded-2xl bg-[var(--card-color)] p-4',
+                    true && 'rounded-2xl bg-(--card-color) p-4',
                   )}
                 >
-                  <h3 className='text-sm text-[var(--main-color)]'>Mode</h3>
+                  <h3 className='text-sm text-(--main-color)'>Mode</h3>
                   <div className='flex w-full justify-center gap-3'>
                     {gameModes.map(mode => {
                       const isSelected = mode.id === gameMode;
@@ -284,7 +284,7 @@ export default function PreGameScreen({
                       );
                     })}
                   </div>
-                  <p className='text-center text-xs text-[var(--secondary-color)]'>
+                  <p className='text-center text-xs text-(--secondary-color)'>
                     {selectedMode?.description}
                   </p>
                 </div>
@@ -294,7 +294,7 @@ export default function PreGameScreen({
             // Old design: Detailed cards with icons and radio indicators
             return (
               <div className='space-y-3'>
-                <h3 className='text-sm text-[var(--main-color)]'>Mode</h3>
+                <h3 className='text-sm text-(--main-color)'>Mode</h3>
                 {gameModes.map(mode => {
                   const isSelected = mode.id === gameMode;
                   const Icon = mode.icon;
@@ -312,29 +312,29 @@ export default function PreGameScreen({
                       }}
                       className={clsx(
                         'w-full rounded-2xl p-4 text-left',
-                        'flex items-center gap-4 border-2 bg-[var(--card-color)]',
+                        'flex items-center gap-4 border-2 bg-(--card-color)',
                         isDisabled && 'cursor-not-allowed opacity-50',
                         !isDisabled && 'hover:cursor-pointer',
                         isSelected
-                          ? 'border-[var(--main-color)]'
-                          : 'border-[var(--border-color)]',
+                          ? 'border-(--main-color)'
+                          : 'border-(--border-color)',
                       )}
                     >
                       <div
                         className={clsx(
                           'flex h-10 w-10 shrink-0 items-center justify-center rounded-xl',
                           isSelected
-                            ? 'bg-[var(--main-color)] text-[var(--background-color)]'
-                            : 'bg-[var(--border-color)] text-[var(--muted-color)]',
+                            ? 'bg-(--main-color) text-(--background-color)'
+                            : 'bg-(--border-color) text-(--muted-color)',
                         )}
                       >
                         <Icon size={20} />
                       </div>
                       <div className='min-w-0 flex-1'>
-                        <h4 className='font-medium text-[var(--secondary-color)]'>
+                        <h4 className='font-medium text-(--secondary-color)'>
                           {mode.title}
                         </h4>
-                        <p className='text-xs text-[var(--muted-color)]'>
+                        <p className='text-xs text-(--muted-color)'>
                           {mode.description}
                         </p>
                       </div>
@@ -342,13 +342,13 @@ export default function PreGameScreen({
                         className={clsx(
                           'flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2',
                           isSelected
-                            ? 'border-[var(--main-color)] bg-[var(--main-color)]'
-                            : 'border-[var(--border-color)]',
+                            ? 'border-(--main-color) bg-(--main-color)'
+                            : 'border-(--border-color)',
                         )}
                       >
                         {isSelected && (
                           <svg
-                            className='h-3 w-3 text-[var(--background-color)]'
+                            className='h-3 w-3 text-(--background-color)'
                             fill='none'
                             viewBox='0 0 24 24'
                             stroke='currentColor'
@@ -370,8 +370,8 @@ export default function PreGameScreen({
           })()}
 
           {/* Repetitions per character */}
-          <div className='space-y-3 rounded-2xl bg-[var(--card-color)] p-4'>
-            <p className='text-sm font-medium text-[var(--main-color)]'>
+          <div className='space-y-3 rounded-2xl bg-(--card-color) p-4'>
+            <p className='text-sm font-medium text-(--main-color)'>
               Repetitions per character:
             </p>
             <div className='flex flex-wrap justify-center gap-2'>
@@ -403,9 +403,9 @@ export default function PreGameScreen({
               onClick={handleBack}
               className={clsx(
                 'flex w-1/2 flex-row items-center justify-center gap-2 px-2 py-3 sm:px-6',
-                'bg-[var(--secondary-color)] text-[var(--background-color)]',
+                'bg-(--secondary-color) text-(--background-color)',
                 'rounded-3xl transition-colors duration-200',
-                'border-b-10 border-[var(--secondary-color-accent)]',
+                'border-b-10 border-(--secondary-color-accent)',
                 'hover:cursor-pointer',
               )}
             >
@@ -422,7 +422,7 @@ export default function PreGameScreen({
                   'rounded-3xl transition-colors duration-200',
                   'border-b-10',
                   'hover:cursor-pointer',
-                  'border-[var(--main-color-accent)] bg-[var(--main-color)] text-[var(--background-color)]',
+                  'border-(--main-color-accent) bg-(--main-color) text-(--background-color)',
                 )}
               >
                 <Play className='fill-current' size={20} />

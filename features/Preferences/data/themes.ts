@@ -125,6 +125,33 @@ export function generateCardColor(
 }
 
 /**
+ * Handles special cases for transparency (Glass themes).
+ * Returns the card color with specific opacity for glass effects.
+ */
+export function getModifiedCardColor(
+  themeId: string,
+  cardColor: string,
+): string {
+  if (themeId === 'neon-city-glass') {
+    return 'oklch(20% 0.01 255 / 0.65)'; // Dark semi-transparent
+  }
+  return cardColor;
+}
+
+/**
+ * Handles special cases for border transparency.
+ */
+export function getModifiedBorderColor(
+  themeId: string,
+  borderColor: string,
+): string {
+  if (themeId === 'neon-city-glass') {
+    return 'oklch(100% 0 0 / 0.12)'; // Light semi-transparent
+  }
+  return borderColor;
+}
+
+/**
  * Generates a border color from a background color.
  *
  * For dark themes:
@@ -1341,6 +1368,19 @@ const baseThemeSets: BaseThemeGroup[] = [
     ],
   },
   {
+    name: 'Special',
+    icon: Sparkles,
+    isLight: false,
+    themes: [
+      {
+        id: 'neon-city-glass',
+        backgroundColor: 'oklch(0% 0 0 / 0)', // Fully transparent, as wallpaper will be behind
+        mainColor: 'oklch(100% 0 0)', // High contrast white
+        secondaryColor: 'oklch(85% 0 0)', // Muted light gray
+      },
+    ],
+  },
+  {
     name: 'Extra',
     icon: Sparkles,
     isLight: false,
@@ -1416,6 +1456,8 @@ function ensureCustomThemesLoaded(): void {
     state.themes.forEach(theme =>
       themeMap.set(theme.id, buildThemeFromTemplate(theme)),
     );
+    // Clear cache to force rebuild of theme map next time it's accessed
+    _themeMap = null;
   });
 }
 
@@ -1431,8 +1473,13 @@ export function applyTheme(themeId: string) {
   const root = document.documentElement;
 
   root.style.setProperty('--background-color', theme.backgroundColor);
-  root.style.setProperty('--card-color', theme.cardColor);
-  root.style.setProperty('--border-color', theme.borderColor);
+
+  // Handle modified colors for glass themes
+  const cardColor = getModifiedCardColor(theme.id, theme.cardColor);
+  const borderColor = getModifiedBorderColor(theme.id, theme.borderColor);
+
+  root.style.setProperty('--card-color', cardColor);
+  root.style.setProperty('--border-color', borderColor);
   root.style.setProperty('--main-color', theme.mainColor);
   root.style.setProperty('--main-color-accent', theme.mainColorAccent);
 
@@ -1451,8 +1498,13 @@ export function applyTheme(themeId: string) {
 export function applyThemeObject(theme: Theme) {
   const root = document.documentElement;
   root.style.setProperty('--background-color', theme.backgroundColor);
-  root.style.setProperty('--card-color', theme.cardColor);
-  root.style.setProperty('--border-color', theme.borderColor);
+
+  // Handle modified colors for glass themes
+  const cardColor = getModifiedCardColor(theme.id, theme.cardColor);
+  const borderColor = getModifiedBorderColor(theme.id, theme.borderColor);
+
+  root.style.setProperty('--card-color', cardColor);
+  root.style.setProperty('--border-color', borderColor);
   root.style.setProperty('--main-color', theme.mainColor);
   root.style.setProperty('--main-color-accent', theme.mainColorAccent);
   if (theme.secondaryColor) {

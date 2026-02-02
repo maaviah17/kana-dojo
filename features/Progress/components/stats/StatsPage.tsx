@@ -66,7 +66,7 @@ function EmptyState() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className='mb-3 text-3xl font-bold text-[var(--main-color)]'
+        className='mb-3 text-3xl font-bold text-(--main-color)'
       >
         No Progress Yet
       </motion.h2>
@@ -74,7 +74,7 @@ function EmptyState() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className='max-w-md text-[var(--secondary-color)]'
+        className='max-w-md text-(--secondary-color)'
       >
         Start practicing to see your statistics here. Complete training sessions
         to track your progress and character mastery.
@@ -152,10 +152,10 @@ export default function StatsPage({ className }: StatsPageProps) {
         className='flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between'
       >
         <div className='space-y-2'>
-          <h1 className='text-4xl font-bold tracking-tight text-[var(--main-color)]'>
+          <h1 className='text-4xl font-bold tracking-tight text-(--main-color)'>
             Your Progress
           </h1>
-          <p className='text-lg text-[var(--secondary-color)]/70'>
+          <p className='text-lg text-(--secondary-color)/70'>
             Track your Japanese learning journey
           </p>
         </div>
@@ -165,7 +165,7 @@ export default function StatsPage({ className }: StatsPageProps) {
           borderColorScheme='secondary'
           borderBottomThickness={8}
           disabled={!hasData}
-          className='w-auto cursor-pointer gap-2 px-6 py-3 text-sm font-semibold disabled:bg-[var(--secondary-color)]/70'
+          className='w-auto cursor-pointer gap-2 px-6 py-3 text-sm font-semibold disabled:bg-(--secondary-color)/70'
         >
           <Trash className='h-4 w-4' />
           Reset
@@ -174,29 +174,29 @@ export default function StatsPage({ className }: StatsPageProps) {
 
       {/* Reset Confirmation Dialog */}
       <AlertDialog open={showResetModal} onOpenChange={setShowResetModal}>
-        <AlertDialogContent className='rounded-3xl border-[var(--border-color)] bg-[var(--card-color)]'>
+        <AlertDialogContent className='rounded-3xl border-(--border-color) bg-(--card-color)'>
           <AlertDialogHeader>
             <div className='mb-4 flex items-center gap-4'>
-              <div className='flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[var(--secondary-color)]/20 bg-[var(--secondary-color)]/10'>
-                <AlertTriangle className='h-7 w-7 text-[var(--secondary-color)]' />
+              <div className='flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-(--secondary-color)/20 bg-(--secondary-color)/10'>
+                <AlertTriangle className='h-7 w-7 text-(--secondary-color)' />
               </div>
-              <AlertDialogTitle className='text-2xl font-bold text-[var(--main-color)]'>
+              <AlertDialogTitle className='text-2xl font-bold text-(--main-color)'>
                 Reset All Progress?
               </AlertDialogTitle>
             </div>
-            <AlertDialogDescription className='text-base leading-relaxed text-[var(--secondary-color)]'>
+            <AlertDialogDescription className='text-base leading-relaxed text-(--secondary-color)'>
               This will permanently delete all your progress data, including
               sessions, accuracy stats, and character mastery. This action
               cannot be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter className='gap-3'>
-            <AlertDialogCancel className='cursor-pointer rounded-full border-[var(--border-color)] px-6 text-[var(--main-color)] transition-colors duration-300 hover:bg-[var(--background-color)]'>
+            <AlertDialogCancel className='cursor-pointer rounded-full border-(--border-color) px-6 text-(--main-color) transition-colors duration-300 hover:bg-(--background-color)'>
               Cancel
             </AlertDialogCancel>
             <AlertDialogAction
               onClick={handleConfirmReset}
-              className='cursor-pointer rounded-full bg-[var(--secondary-color)] px-6 transition-colors duration-300 hover:bg-[var(--secondary-color)]/80'
+              className='cursor-pointer rounded-full bg-(--secondary-color) px-6 transition-colors duration-300 hover:bg-(--secondary-color)/80'
             >
               Reset Progress
             </AlertDialogAction>
