@@ -304,5 +304,11 @@
     "backgroundColor": "oklch(20.0% 0.045 35.0 / 1)",
     "mainColor": "oklch(70.0% 0.165 30.0 / 1)",
     "secondaryColor": "oklch(80.0% 0.115 65.0 / 1)"
+  },
+  {
+    "id": "onsen-steam",
+    "backgroundColor": "oklch(25.0% 0.022 210.0 / 1)",
+    "mainColor": "oklch(85.0% 0.085 215.0 / 1)",
+    "secondaryColor": "oklch(70.0% 0.065 195.0 / 1)"
   }
 ]
